@@ -24,13 +24,13 @@ geoData <- function(x){
     }
   }
   # Converts to dec
-  startLat2 <- convertToDec(startLat)
-  startLong2 <- convertToDec(startLong)
-  endLat2 <- convertToDec(endLat)
-  endLong2 <- convertToDec(endLong)  
+  startLatFinal <- convertToDec(startLat)
+  startLongFinal <- convertToDec(startLong)
+  endLatFinal <- convertToDec(endLat)
+  endLongFinal <- convertToDec(endLong)  
   
-  # Creats DF with start and ending lat and long coords
-  locationHistory <- data.frame(startLat2, startLong2, endLat2, endLong2)
+  # Creates DF with start/ending lat and long coords
+  locationHistory <- data.frame(startLatFinal, startLongFinal, endLatFinal, endLongFinal)
   # Removes N/As
   locationHistory <- remove_missing(locationHistory)
 }
