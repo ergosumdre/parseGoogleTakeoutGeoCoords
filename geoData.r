@@ -2,7 +2,7 @@
 # Parse and returns start and ending lat and long coords
 geoData <- function(x){
   # JSON to lists
-  locationData <- fromJSON(x)
+  locationData <- jsonlite::fromJSON(x)
   # Parse out Starting Lat coords from lists
   startLat <- locationData[["timelineObjects"]][["activitySegment"]][["startLocation"]][["latitudeE7"]]
   # Parse out Starting Long coords from lists
@@ -32,5 +32,5 @@ geoData <- function(x){
   # Creates DF with start/ending lat and long coords
   locationHistory <- data.frame(startLatFinal, startLongFinal, endLatFinal, endLongFinal)
   # Removes N/As
-  locationHistory <- remove_missing(locationHistory)
+  locationHistory <- ggplot2::remove_missing(locationHistory)
 }
